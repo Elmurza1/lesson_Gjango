@@ -17,3 +17,12 @@ class Publication(models.Model):
     image = models.ImageField()
     created_date = models.DateField()
 
+
+class Comment(models.Model):
+    name = models.CharField(max_length=120)
+    description = models.TextField()
+    img = models.ImageField()
+    date = models.DateField(null=True)
+
+
+

@@ -1,5 +1,5 @@
 from django.views.generic import TemplateView
-from .models import Coffe, Publication
+from .models import Coffe, Publication, Comment
 # Create your views here.
 
 
@@ -8,7 +8,9 @@ class HomeView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = {
-            'coffe_list': Coffe.objects.all()
+            'coffe_list': Coffe.objects.all(),
+            'comment_list': Comment.objects.all(),
+            'blog': Publication.objects.all()
         }
         return context
 
@@ -36,6 +38,7 @@ class BlogView(TemplateView):
         }
         return context
 
+
 class CoffeDetail(TemplateView):
     coffee_pk = 'coffe.html'
     def get_context_data(self, **kwargs):
@@ -47,6 +50,4 @@ class CoffeDetail(TemplateView):
         return context
 
 
-class PublicationDetailView(TemplateView):
-    pass
 
