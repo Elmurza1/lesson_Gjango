@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Coffe, Publication, Comment
+from .models import Coffe, Publication, Comment, Contacts
 # Register your models here.
 
 @admin.register(Coffe)
@@ -16,3 +16,7 @@ class PublicationAdmin(admin.ModelAdmin):
 class PublicationComment(admin.ModelAdmin):
     list_display = ['name']
 
+
+@admin.register(Contacts)
+class PublicationContacts(admin.ModelAdmin):
+    list_display = ['email']
