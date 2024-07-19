@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html>
    <head>
@@ -26,7 +25,7 @@
       <!-- font css -->
       <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
       <!-- Scrollbar Custom CSS -->
-      <link rel="stylesheet" href="{% static 'css/jquery.mCustomScrollbar.min.css' %}">
+      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
       <!-- Tweaks for older IEs-->
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
    </head>
@@ -34,23 +33,23 @@
       <div class="header_section header_bg">
          <div class="container-fluid">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-               <a class="navbar-brand" href="index.html"><img src="{% static 'images/logo.png' %}"></a>
+               <a class="navbar-brand"href="index.html"><img src="{% static 'images/logo.png' %}"></a>
                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-icon"></span>
                </button>
                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav ml-auto">
                      <li class="nav-item">
-                           <a class="nav-link" href="{% url 'home-list' %}">Home</a>
+                        <a class="nav-link" href="index.html">Home</a>
                      </li>
                      <li class="nav-item">
                         <a class="nav-link" href="about.html">About</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="{% url 'coffe-list' %}">Coffees</a>
+                        <a class="nav-link" href="">Coffees</a>
                      </li>
                      <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'blog-list' %}">Blog</a>
+                        <a class="nav-link" href="blog.html">Blog</a>
                      </li>
                      <li class="nav-item">
                         <a class="nav-link" href="contact.html">Contact</a>
@@ -78,25 +77,10 @@
                   <div class="bulit_icon"><img src="{% static 'images/bulit-icon.png' %}"></div>
                </div>
             </div>
-
-            <div class="blog_section_2">
-               <div class="row">
-                      {% for item in blog %}
-                  <div class="col-md-6">
-                     <div class="blog_box">
-
-                        <div class="blog_img"><img src="{{ item.image.url }}"></div>
-                        <h4 class="date_text">{{ item.created_date }}</h4>
-                        <h4 class="prep_text">{{ item.title }}</h4>
-                        <p class="lorem_text">{{ item.short_description }}</p>
-                     </div>
-
-                     <div class="read_bt"><a href="#">Read More</a></div>
-                  </div>
-                     {% endfor %}
-               </div>
-               </div>
-            </div>
+             <h2>Publication.title</h2>
+             <p>Publication.description</p>
+             <img src="{% static 'images/blog-img1.png' %}">
+             <p>Publication.created_date</p>
          </div>
       </div>
       <!-- blog section end -->
@@ -111,12 +95,12 @@
                      <ul>
                         <li>
                            <a href="#">
-                           <i class="fa fa-phone" aria-hidden="true"></i><span class="padding_left_10">+contacts.numb</span>
+                           <i class="fa fa-phone" aria-hidden="true"></i><span class="padding_left_10">+01 1234567890</span>
                            </a>
                         </li>
                         <li>
                            <a href="#">
-                           <i class="fa fa-envelope" aria-hidden="true"></i><span class="padding_left_10">contacts.email</span>
+                           <i class="fa fa-envelope" aria-hidden="true"></i><span class="padding_left_10">demo@gmail.com</span>
                            </a>
                         </li>
                      </ul>

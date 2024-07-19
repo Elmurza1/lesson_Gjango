@@ -325,11 +325,14 @@
                <div class="row">
                   <div class="col-md-12">
                      <div class="mail_section_1">
-                        <input type="text" class="mail_text" placeholder="Your Name" name="Your Name">
-                        <input type="text" class="mail_text" placeholder="Your Email" name="Your Email">
-                        <input type="text" class="mail_text" placeholder="Your Phone" name="Your Phone">
-                        <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="Massage"></textarea>
-                        <div class="send_bt"><a href="#">SEND</a></div>
+                        <form action="client-contact-create/" method="post">
+                           {% csrf_token %}
+                           <input type="text" class="mail_text" placeholder="имя" name="Your Name">
+                           <input type="text" class="mail_text" placeholder="электронная почта" name="Your Email">
+                           <input type="text" class="mail_text" placeholder="номер телефона" name="Your Phone">
+                           <textarea class="massage-bt" placeholder="сообщение" rows="5" id="comment" name="Massage"></textarea>
+                           <input type="submit" value="ОТПРАВИТЬ" />
+                        </form>
                      </div>
                   </div>
                   <div class="map_main">
@@ -351,21 +354,21 @@
                   <h1 class="address_text">Address</h1>
                   <p class="footer_text">here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use </p>
                   <div class="location_text">
-                         {% for item in contacts %}
+
                      <ul>
                         <li>
                            <a href="#">
-                           <i class="fa fa-phone" aria-hidden="true"></i><span class="padding_left_10">+{{item.numb}}</span>
+                           <i class="fa fa-phone" aria-hidden="true"></i><span class="padding_left_10">+{{contacts.numb}}</span>
                            </a>
                         </li>
                         <li>
                            <a href="#">
-                           <i class="fa fa-envelope" aria-hidden="true"></i><span class="padding_left_10">{{item.email}}</span>
+                           <i class="fa fa-envelope" aria-hidden="true"></i><span class="padding_left_10">{{contacts.email}}</span>
                            </a>
                         </li>
                      </ul>
                   </div>
-                  {% endfor %}
+
                   <div class="form-group">
                      <textarea class="update_mail" placeholder="Your Email" rows="5" id="comment" name="Your Email"></textarea>
                      <div class="subscribe_bt"><a href="#"><img src="{% static 'images/teligram-icon.png' %}"></a></div>

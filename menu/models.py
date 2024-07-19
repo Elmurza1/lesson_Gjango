@@ -26,10 +26,18 @@ class Comment(models.Model):
 
 
 
+
+
 class Contacts(models.Model):
     numb = models.IntegerField()
     address = models.TextField()
     email = models.EmailField()
+
+class ClientContact(models.Model):
+    phone = models.IntegerField()
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    message = models.TextField()
 
 
 

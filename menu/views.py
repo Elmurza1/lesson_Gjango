@@ -1,6 +1,8 @@
+from django.http import HttpResponse
 from django.views.generic import TemplateView
-from .models import Coffe, Publication, Comment, Contacts
-from django.shortcuts import render
+from .models import Coffe, Publication, Comment, Contacts, ClientContact
+
+from django.shortcuts import render, redirect
 # Create your views here.
 
 
@@ -12,7 +14,7 @@ class HomeView(TemplateView):
             'coffe_list': Coffe.objects.all(),
             'comment_list': Comment.objects.all(),
             'blog': Publication.objects.all(),
-            'contacts': Contacts.objects.all()
+            'contacts': Contacts.objects.first()
         }
         return context
 
@@ -66,4 +68,28 @@ class CoffeDetail(TemplateView):
         return context
 
 
+class DetailCoffeeView(TemplateView):
+    template_name = 'blog-detail.html'
 
+    def get_context_data(self, **kwargs):
+        coffe_pk = kwargs['pk']
+        context = {
+         'coffee': Publication.objects.get(id=coffe_pk)
+        }
+        return context
+
+
+
+
+
+def visitor_message_view(request):
+    print('это ваш данные от ПОСТ запроса', request.POST)
+
+    input_name = request.POST['Your Name']
+    input_email = request.POST['Your Email']
+    input_phone = request.POST['Your Phone']
+    input_message = request.POST['Massage']
+
+    ClientContact.objects.create(name=input_name, email=input_email, phone=input_phone, message=input_message)
+
+    return HttpResponse("<h1>Ваше сообщение было создано!</h1>")
